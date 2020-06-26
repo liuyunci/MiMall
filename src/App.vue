@@ -6,38 +6,34 @@
 
 <script>
 export default {
-  name: 'App',
-  components: {
-    
-  },
+  name: "App",
+  components: {},
   data() {
     return {
-      res: {
-
-      }
-    }
+      res: {}
+    };
   },
-  mounted(){
+  mounted() {
     this.getUser();
-    this.getCartCount();  
+    this.getCartCount();
   },
-  methods:{
-    getUser(){
-      this.axios.get('/user').then((res)=>{
-        this.$store.dispatch('saveUserName',res.username);
-      })
+  methods: {
+    getUser() {
+      this.axios.get("/user").then(res => {
+        this.$store.dispatch("saveUserName", res.username);
+      });
     },
-    getCartCount(){
-      this.axios.get('/carts/products/sum').then(()=>{
+    getCartCount() {
+      this.axios.get("/carts/products/sum").then(() => {
         //todo保存到VUEX里面
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import './assets/scss/reset.scss';
-@import './assets/scss/config.scss';
-@import './assets/scss/button.scss';
+@import "./assets/scss/reset.scss";
+@import "./assets/scss/config.scss";
+@import "./assets/scss/button.scss";
 </style>
